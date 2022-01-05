@@ -1,0 +1,126 @@
+{%extends "home.html"%}
+{%block content%}
+    <div class="site-header-logo">
+        <h1 class="text-center">         </h1>
+        <h1 class="text-center">         </h1>
+        <h1 class="text-center" line-height:70px;>
+            Hi, Welcome to my Data Analysis and Visualization Project
+        </h1>
+        <h4 class="text-center">In this section, we can take a look into the coronavirus situation in India</h4>
+        <h1 class="text-center">         </h1>
+        <h1 class="text-center">         </h1>
+        <h1 class="text-left">
+            Using Twitter API
+        </h1>
+        <p>
+            The Twitter API is used for collecting the data from Twitter and using it for this Analysis.
+            The main purpose of this Analysis is to showcase the sentiments of the tweets regarding the Virus in India.
+            The tweets collected were around 11,800 tweets from 1st of January to 30th of September 2021.
+            Before getting into the visualization aspects of the analysis, lets see how the Twitter API works
+        </p>
+        <h1 class="text-center">         </h1>
+        <h1 class="text-center">         </h1>
+        <h1 class="text-left">
+            Visualizing the Covid-19 situation in India
+        </h1>
+    </div>
+
+    <div class="row p-4">
+        <div class="card m-auto" style="width:90%;" data-aos="fade-left">
+            <div class="card-body">
+                <div id="chart1"></div>
+                <p>
+                    Looking at the distribution of the sentiments, the goal was to visualize the actual number of tweets 
+                    per category (Positive, Negative, Neutral) and we can see that number of positive tweets exceeds the
+                    number of negative tweets.
+                </p>
+            </div>
+        </div>
+    </div>
+    
+    <div class="row p-4">
+        <div class="card m-auto" style="width:90%;" data-aos="fade-left">
+            <div class="card-body">
+                <div id="chart2"></div>
+                <p>
+                    We can look at the distribution of sentiments in tweets over the months from January to September.
+                    Seems that many people are discussing about Corona and Covid in May. Lets find more about this in
+                    the next graph.
+                </p>
+            </div>
+        </div>
+    </div>
+    
+    <div class="row p-4">
+        <div class="card m-auto" style="width:90%;" data-aos="fade-left">
+            <div class="card-body">
+                <div id="chart3"></div>
+                <p>
+                    There is an increase in the number of tweets from March, peaking at May, suggesting that many accounts were 
+                    talking about Covid-19. And this happens to be the time, the number of new cases were the highest in India.
+                    Many people expressed the virus using the keyword 'Covid' rather than 'Corona'.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <div class="row p-4">
+        <div class="card m-auto" style="width:90%;" data-aos="fade-left">
+            <div class="card-body">
+                <img src="{{url_for('static',filename='Frequency-Polarity.png')}}" align="center"/>
+                <p>
+                    In this case, we want to understand the sentiment distribution in the tweets from India regarding Covid.
+                    As we can see, most of the sentiments are neutral, which can be attributed to a substantial amount
+                    of tweets that were from sources that are not personal accounts and represent corporate or news point of 
+                    view.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <div class="row p-4">
+        <div class="card m-auto" style="width:90%;" data-aos="fade-left">
+            <div class="card-body">                
+                <img src="{{url_for('static',filename='t-sne.png')}}"/>
+                <p>
+                    Made use of Word2Vec to find the similarity between different words since it makes use of base neural 
+                    networks to learn word embeddings. Now to visualize this word embedding, I used t-SNE algorithm as it makes 
+                    it easier to plot the vectors of a query word (in this case 'Covid19') along with some words having 
+                    similarity with covid19 learn by Word2Vec.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <div class="row p-4">
+        <div class="card m-auto" style="width:90%;" data-aos="fade-left">
+            <div class="card-body">                
+                <img src="{{url_for('static',filename='bigrams.png')}}"/>
+                <p>
+                    We can also try to make use of bigrams to check the similarities as this may be more useful than singular 
+                    words by themselves. Some of the bigrams were expected like 'corona'-'virus' but there are some 
+                    interesting ones like the one which shows 'second'-'wave'. This is mostly in reference to the second 
+                    wave that hit India. 'wear'-'mask' bigram was another peculiar bigram.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <script>
+        var graph1 = {{ graph1JSON | safe}};
+        Plotly.plot("chart1", graph1, {})
+    </script>
+
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <script>
+        var graph2 = {{ graph2JSON | safe}};
+        Plotly.plot("chart2", graph2, {})
+    </script>
+    
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <script>
+        var graph3 = {{ graph3JSON | safe}};
+        Plotly.plot("chart3", graph3, {})
+    </script>
+{%endblock%}

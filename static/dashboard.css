@@ -1,0 +1,116 @@
+html, body, {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+body {
+    font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+}
+
+.title {
+    background: #657786 !important;
+    color: #FFF;
+}
+
+.header {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 0;
+}
+
+/* .topnav {
+  background-color: #333;
+  overflow: hidden;
+}
+
+.topnav a {
+  float: left;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.topnav a:hover {
+  background-color: #808080;
+  color: white;
+}
+
+.topnav a.active {
+  float: right;
+  background-color: #ff8c00;
+  color: white;
+}
+
+.topnav a.rightside {
+  float: right;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+} */
+
+
+.counter_container {
+    float: left;
+    width: 25%;
+    text-align: center;
+    background-color: #E1E8ED;
+    height: 8vh;
+    padding-top: 10px;
+}
+
+
+.total_counter {
+    background-color: #AAB8C2; !important;
+    text-align: center;
+}
+
+.rightpane {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    float: right;
+    border-collapse: collapse;
+    padding: 0 0.5vw;
+    background-color: #F4F6F6;
+}
+
+.card {
+    border: 1px solid #d3d3d3;
+    border-radius: .25rem;
+    padding: 15px;
+}
+
+.card:hover {
+    background-color: rgba(230, 80, 16, 0.2);
+}
+
+a {
+    text-decoration: none; 
+    color: black;
+}
+
+
+#first{ 
+    width: 100%;
+    height: 50vh;
+    float: left;
+    border: 0.5vw solid #F4F6F6;
+}
+
+#second { 
+    width: 100%;
+    height: 50vh;
+    float: left;
+    border: 0.5vw solid #F4F6F6;
+}

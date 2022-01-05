@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Real time data analysis</title>
+	<link rel="stylesheet" type="text/css" href="static/dashboard.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+	<script src="static/scripts2.js"></script>
+	
+ 	<script src="https://cdn.plot.ly/plotly-latest.min.js"></script> 
+ 	<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.6/d3.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+</head>
+
+<body>
+	<div class="header">
+        
+<!--          <div class="topnav">
+            <a href="#">Data Analysis Project</a>
+            <a class="active" href="#realtime">Real-time</a>
+            <a class="rightside" href="#home">Home</a>
+        </div>  -->
+        
+        <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+          <div class="container-fluid">
+            <a class="navbar-brand" href="#">Data Analysis Project</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon"></span>
+                </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('home_page') }}">Home</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link active" aria-current="page" href="{{ url_for('realTime_page') }}">Real-time</a>
+                </li>
+              </ul>
+           </div>
+          </div>
+       </nav>
+
+        <div class="counter_container title">
+		<h3>Real-Time<br />Twitter Analysis</h3>
+        </div>
+
+        <div class="counter_container total_counter">
+            <p class="counter_title">Tweets Analyzed</p>
+	    <h3 id="total_counter_value"> {{ sentiments['total'] }} </h3>
+        </div>
+
+        <div id="negative_counter_container" class="counter_container">
+            <p class="counter_title">Negative</p>
+	    <h3 id="negative_counter"> {{ sentiments['negative'] }} %</h3>
+        </div>
+
+<!--         <div id="neutral_counter_container" class="counter_container">
+            <p class="counter_title">Neutral</p>
+	    <h3 id="neutral_counter"> {{ sentiments['neutral'] }} %</h3>
+        </div> -->
+
+        <div id="positive_counter_container" class="counter_container">
+            <p class="counter_title">Positive</p>
+	    <h3 id="positive_counter"> {{ sentiments['positive'] }} %</h3>
+        </div>
+
+		<div class="rightpane">
+			<div id="first">
+            <script type="text/javascript">
+				var data = [{
+				    x: {{hashtagcounts['words'] | safe}},
+				    y: {{hashtagcounts['counts'] | safe}},
+				    type: 'bar',
+				    text: {{hashtagcounts['counts'] | safe}}.map(String),
+				    textposition: 'auto',
+				    hoverinfo: 'none',
+				    marker: {
+					color: 'rgb(220, 248, 198)',
+					opacity: 0.6,
+					line: {
+						color: 'rgb(8, 48, 107)',
+						width: 1.5
+					}
+				    }
+				}];
+
+				var layout = {
+					title: 'Most used hashtags',
+					barmode: 'stack',
+				};
+
+				Plotly.newPlot('first', data, layout);
+			</script>
+			</div>
+			<div id="second">
+			<script type="text/javascript">
+				var data = [{
+				    x: {{wordcounts['words'] | safe}},
+				    y: {{wordcounts['counts'] | safe}},
+				    type: 'bar',
+				    text: {{wordcounts['counts'] | safe}}.map(String),
+				    textposition: 'auto',
+				    hoverinfo: 'none',
+				    marker: {
+					color: 'rgb(220, 248, 198)',
+					opacity: 0.6,
+					line: {
+						color: 'rgb(8, 48, 107)',
+						width: 1.5
+					}
+				    }
+				}];
+
+				var layout = {
+					title: 'Most used terms',
+					barmode: 'stack',
+				};
+
+				Plotly.newPlot('second', data, layout);
+			</script>
+			</div>
+
+		 </div>
+	</div>
+
+</body>
+</html>
