@@ -1,16 +1,16 @@
 # Twitter-Analysis-With-Spark
 
-Aight, simple thing is that this project is meant to do sentiment analysis using Twitter's API. Boom!
+Aight, simple thing is that this project is meant to do sentiment analysis using Twitter's API. 
 
 `Update`: I don't know if the API works with Elon Musk taking over Twitter but try it out if it helps you.
 
 The project has 3 parts which combines together for the complete the project.
 
-`Part 1` - Scrap data of Twitter --> Store it in a CSV --> Make insights and visualization. Boom!
+`Part 1` - Scrap data of Twitter --> Store it in a CSV --> Make insights and visualization. 
 
-`Part 2` - Twitter Streaming through Twitter API --> Send data to TCP socket which connects to Apache Spark --> Do real time analysis and see the results. Boom!
+`Part 2` - Twitter Streaming through Twitter API --> Send data to TCP socket which connects to Apache Spark --> Do real time analysis and see the results. 
 
-`Part 3` - Build a RBF-SVM classifer --> Connect it with Part 2 files --> Use it for sentiment analysis. Boom!
+`Part 3` - Build a RBF-SVM classifer --> Connect it with Part 2 files --> Use it for sentiment analysis. 
 
 ## Step 1: Twitter API
 
