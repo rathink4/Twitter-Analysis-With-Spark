@@ -21,7 +21,7 @@ Nevertheless, you still need the API for authentication as well as to scrape the
 
 Hence, the dataset collected cannot be used for concluding confident results. I collected the tweets with the geolocation set to India and queried for any tweets containing use of ‘covid-19, ‘corona’, ‘pandemic’ or ‘virus’. The retrieved data from snscrape is stored as .csv file containing the date, tweet and the person who tweeted whether used keyword ‘Covid-19’ or ‘Corona’ when talking about the pandemic. The tweets collected were around 11,800 tweets from 1st of January to 30th of September 2021.
 
-### Step 2: Insights and visualization of stored data
+## Step 2: Insights and visualization of stored data
 
 The main goal of the analysis was to understand and analyze the sentiments of tweets regarding the virus and the current pandemic status in India.
 
